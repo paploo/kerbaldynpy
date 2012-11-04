@@ -16,7 +16,17 @@ class Planetoid(object):
     def rotational_period(self, rotational_period):
         self.angular_velocity = 2.0 * math.pi / rotational_period
 
-if __name__ == '__main__':
-    p = Planetoid('jeff', 1024, radius=3.0)
-    print p
-    print p.orbital_parameters
+    def gravitational_acceleration(self, r):
+        return self.gravitational_parameter / r**2.0
+
+    def surface_gravity(self, h=0.0):
+        return self.gravitational_acceleration(self.radius + h)
+
+    def equitorial_velocity(self, h=0.0):
+        return self.angular_velocity * (self.radius + h)
+
+    def escape_velocity(self):
+        return math.sqrt( 2.0 * self.gravitational_parameter / self.radius )
+
+    def geostationary_orbit(self):
+        return Orbit.geostationary_orbit(self)

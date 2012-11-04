@@ -24,3 +24,15 @@ class TestPlanetoid(testhelper.KerbalDynTestCase):
         self.earth.rotational_period = period
         self.assertWithinError(period, self.earth.rotational_period)
         self.assertWithinError(0.10, self.earth.angular_velocity)
+
+    def test_gravitational_acceleration(self):
+        self.assertWithinError(9.7984, self.earth.gravitational_acceleration(6378.1e3))
+
+    def test_surface_gravity(self):
+        self.assertWithinError(9.7984, self.earth.surface_gravity())
+
+    def test_equitorial_velocity(self):
+        self.assertWithinError(465.0984, self.earth.equitorial_velocity())
+
+    def test_escape_velocity(self):
+        self.assertWithinError(11179.908, self.earth.escape_velocity())

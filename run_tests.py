@@ -1,4 +1,5 @@
 import unittest
+import importlib
 
 test_modules = [
     'test.planetoid_test'
@@ -7,9 +8,8 @@ test_modules = [
 loader = unittest.TestLoader()
 suite = unittest.TestSuite()
 
-
 for test_module in test_modules:
-    mod = __import__(test_module)
+    mod = importlib.import_module(test_module)
     suite.addTests(loader.loadTestsFromModule(mod))
 
 runner = unittest.TextTestRunner(verbosity=1)
