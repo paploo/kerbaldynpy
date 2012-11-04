@@ -1,11 +1,11 @@
 import testhelper
 
-import kerbaldynpy.planetoid
+import kerbaldynpy
 
 class TestPlanetoid(testhelper.KerbalDynTestCase):
 
     def setUp(self):
-        self.earth = kerbaldynpy.planetoid.Planetoid('Earth', 398600.4418e9, radius=6378.1e3, angular_velocity=7.2921150e-5)
+        self.earth = kerbaldynpy.Planetoid('Earth', 398600.4418e9, radius=6378.1e3, angular_velocity=7.2921150e-5)
 
     def test_get_name(self):
         self.assertEqual('Earth', self.earth.name)
@@ -36,3 +36,20 @@ class TestPlanetoid(testhelper.KerbalDynTestCase):
 
     def test_escape_velocity(self):
         self.assertWithinError(11179.908, self.earth.escape_velocity())
+
+
+import kerbaldynpy.planetoid
+
+class TestPlanetoidLibrary(testhelper.KerbalDynTestCase):
+
+    def test_kerbin_name(self):
+        self.assertEqual('Kerbin', kerbaldynpy.planetoid.KERBIN.name)
+
+    def test_kerbin_gravitational_parameter(self):
+        self.assertWithinError(3531600000000.0, kerbaldynpy.planetoid.KERBIN.gravitational_parameter)
+
+    def test_kerbin_radius(self):
+        self.assertWithinError(600000.0, kerbaldynpy.planetoid.KERBIN.radius)
+
+    def test_kerbin_radius(self):
+        self.assertWithinError(21600.0, kerbaldynpy.planetoid.KERBIN.rotational_period)
