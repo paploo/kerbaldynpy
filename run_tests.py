@@ -1,12 +1,16 @@
 import unittest
 
+test_modules = [
+    'test.planetoid_test'
+]
 
 loader = unittest.TestLoader()
-
 suite = unittest.TestSuite()
 
-import test.planetoid_test
-suite.addTests(loader.loadTestsFromModule(test.planetoid_test))
+
+for test_module in test_modules:
+    mod = __import__(test_module)
+    suite.addTests(loader.loadTestsFromModule(mod))
 
 runner = unittest.TextTestRunner(verbosity=1)
 result = runner.run(suite)
