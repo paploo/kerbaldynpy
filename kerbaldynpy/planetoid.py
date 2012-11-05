@@ -55,4 +55,4 @@ BOP = Planetoid('Bop', 2486834944.41491, 65000.0, 12950.0)
 
 
 planetoids = [KERBOL, KERBIN, MUN, MINMUS, DUNA, IKE, MOHO, EVE, GILLY, JOOL, VALL, LAYTHE, TYLO, BOP]
-PLANETOIDS = dict([(p.name,p) for p in planetoids])
+PLANETOIDS = dict(((p.name,p) for p in planetoids))
