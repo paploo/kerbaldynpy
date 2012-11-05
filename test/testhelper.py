@@ -4,7 +4,7 @@ import math
 class KerbalDynTestCase(unittest.TestCase):
 
     def assertWithinError(self, expected, actual, error=1e-6, delta=1e-9):
-        if math.fabs(expected) <= delta:
+        if abs(expected) <= delta:
             return self.assertAlmostEqual(expected, actual, delta=delta)
         else:
             err = (actual - expected) / expected
