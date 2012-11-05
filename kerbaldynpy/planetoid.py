@@ -33,11 +33,6 @@ class Planetoid(object):
         return math.sqrt( 2.0 * self.gravitational_parameter / self.radius )
 
 
-# I have no idea if this is a good idea, but it seems to have the intended affect.
-import kerbaldynpy
-kerbaldynpy.Planetoid = Planetoid
-
-
 KERBOL = Planetoid('Kerbol', 1172332794832492300.0, 261600000)
 
 KERBIN = Planetoid('Kerbin', 3531600000000.0, 600000.0, 21600.0)
