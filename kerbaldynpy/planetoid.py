@@ -57,3 +57,10 @@ VALL = Planetoid('Vall', 207481499473.751, 300000.0, 105962.088893924)
 LAYTHE = Planetoid('Laythe', 1962000029236.08, 500000.0, 52980.8790593796)
 TYLO = Planetoid('Tylo', 2825280042099.95, 600000.0, 211926.35802123)
 BOP = Planetoid('Bop', 2486834944.41491, 65000.0, 12950.0)
+
+def _hash_set_and_return(h,k,v):
+    h[k] = v
+    return h
+
+planetoids = [KERBOL, KERBIN, MUN, MINMUS, DUNA, IKE, MOHO, EVE, GILLY, JOOL, VALL, LAYTHE, TYLO, BOP]
+PLANETOIDS = reduce(lambda h,p: _hash_set_and_return(h,p.name,p), planetoids, {})

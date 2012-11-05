@@ -53,3 +53,6 @@ class TestPlanetoidLibrary(testhelper.KerbalDynTestCase):
 
     def test_kerbin_radius(self):
         self.assertWithinError(21600.0, kerbaldynpy.planetoid.KERBIN.rotational_period)
+
+    def test_kerbin_in_planetoids(self):
+        self.assertEqual(kerbaldynpy.planetoid.KERBIN, kerbaldynpy.planetoid.PLANETOIDS['Kerbin'])
